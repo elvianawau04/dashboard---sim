@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melon Cultivation Management Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: #3DA04D; }
+        form { margin-bottom: 20px; }
+        input, button { padding: 10px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Melon Cultivation Management Dashboard</h1>
+    <form id="dataInputForm">
+        <label for="melonType">Type of Melon:</label>
+        <input type="text" id="melonType" name="melonType" required>
+        <br>
+        <label for="plantingDate">Planting Date:</label>
+        <input type="date" id="plantingDate" name="plantingDate" required>
+        <br>
+        <label for="harvestDate">Estimated Harvest Date:</label>
+        <input type="date" id="harvestDate" name="harvestDate" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Data Overview</h2>
+    <div id="dataOverview">
+        <!-- Dynamic data will be displayed here -->
+    </div>
+    <script>
+        document.getElementById('dataInputForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const melonType = document.getElementById('melonType').value;
+            const plantingDate = document.getElementById('plantingDate').value;
+            const harvestDate = document.getElementById('harvestDate').value;
+            const overviewDiv = document.getElementById('dataOverview');
+            const newEntry = `<p><strong>Type:</strong> ${melonType}, <strong>Planted On:</strong> ${plantingDate}, <strong>Harvest By:</strong> ${harvestDate}</p>`;
+            overviewDiv.innerHTML += newEntry;
+        });
+    </script>
+</body>
+</html>
